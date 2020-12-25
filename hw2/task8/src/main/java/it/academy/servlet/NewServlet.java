@@ -16,6 +16,7 @@ public class NewServlet extends HttpServlet {
         try {
             final PrintWriter writer = resp.getWriter();
             writer.println("Hello from servlet! " + new Date());
+            System.out.println("Hello from servlet! " + new Date());
         } catch (IOException e) {
             e.printStackTrace();
         }
