@@ -28,8 +28,8 @@
     justify-content: center;
     align-items: center;
     background-color: #e09420;
-    /*border-radius: 10px;*/
-    /*margin-bottom: 10px;*/
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
   form {
@@ -54,8 +54,8 @@
     outline: 0;
     padding: 10px 20px;
     border-radius: 10px;
-    color: #ffffff;
-    background-color: #be0800;
+    color: #000000;
+    background-color: #ec9d6e;
     margin: 5px;
   }
 </style>
