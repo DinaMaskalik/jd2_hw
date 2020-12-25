@@ -1,0 +1,160 @@
+C:\Users\Admin>cd /d d:\java\apache-tomcat-9.0.41
+
+d:\Java\apache-tomcat-9.0.41>cd bin
+
+d:\Java\apache-tomcat-9.0.41\bin>startup.bat
+Using CATALINA_BASE:   "d:\Java\apache-tomcat-9.0.41"
+Using CATALINA_HOME:   "d:\Java\apache-tomcat-9.0.41"
+Using CATALINA_TMPDIR: "d:\Java\apache-tomcat-9.0.41\temp"
+Using JRE_HOME:        "C:\Program Files\Java\jdk-11"
+Using CLASSPATH:       "d:\Java\apache-tomcat-9.0.41\bin\bootstrap.jar;d:\Java\apache-tomcat-9.0.41\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+
+d:\homework\hw2\task8>mvn clean install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ task8 ---
+[INFO] Deleting d:\homework\hw2\task8\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\main\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ task8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to d:\homework\hw2\task8\target\classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ task8 ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ task8 ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:3.3.1:war (default-war) @ task8 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [task8] in [d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Building war: d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ task8 ---
+[INFO] Installing d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war to d:\java\.m2\repository\it\academy\task8\1.0-SNAPSHOT\task8-1.0-SNAPSHOT.war
+[INFO] Installing d:\homework\hw2\task8\pom.xml to d:\java\.m2\repository\it\academy\task8\1.0-SNAPSHOT\task8-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.884 s
+
+d:\homework\hw2\task8>mvn tomcat:redeploy
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] >>> tomcat-maven-plugin:1.1:redeploy (default-cli) > package @ task8 >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\main\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ task8 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ task8 ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ task8 ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:3.3.1:war (default-war) @ task8 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [task8] in [d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Building war: d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war
+[INFO]
+[INFO] <<< tomcat-maven-plugin:1.1:redeploy (default-cli) < package @ task8 <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat-maven-plugin:1.1:redeploy (default-cli) @ task8 ---
+[INFO] Deploying war to http://localhost:8080/task8
+[INFO] OK - Приложение успешно развёрнуто в контекстном пути [/task8]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.364 s
+
+d:\homework\hw2\task8>mvn tomcat:list
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- tomcat-maven-plugin:1.1:list (default-cli) @ task8 ---
+[INFO] Listing applications at http://localhost:8080/manager/text
+[INFO] OK - Список приложений для виртуального хоста [localhost]
+[INFO] /:running:0:ROOT
+[INFO] /task8:running:0:task8
+[INFO] /examples:running:0:examples
+[INFO] /host-manager:running:0:host-manager
+[INFO] /manager:running:0:manager
+[INFO] /docs:running:0:docs
+[INFO] /tomcat-quickstart:running:0:tomcat-quickstart
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.025 s
+
+d:\homework\hw2\task8>mvn tomcat:info
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- tomcat-maven-plugin:1.1:info (default-cli) @ task8 ---
+[INFO] Listing server information at http://localhost:8080/manager/text
+[INFO] OK - Server info
+[INFO] Tomcat Version: [Apache Tomcat/9.0.41]
+[INFO] OS Name: [Windows 10]
+[INFO] OS Version: [10.0]
+[INFO] OS Architecture: [amd64]
+[INFO] JVM Version: [11+28]
+[INFO] JVM Vendor: [Oracle Corporation]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.965 s
+
+
+d:\homework\hw2\task8>mvn tomcat:undeploy
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- tomcat-maven-plugin:1.1:undeploy (default-cli) @ task8 ---
+[INFO] Undeploying application at http://localhost:8080/task8
+[INFO] OK - Удалено приложение по пути контекста [/task8]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.615 s
+
+
+
+
+

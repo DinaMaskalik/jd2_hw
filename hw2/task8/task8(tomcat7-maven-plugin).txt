@@ -1,0 +1,98 @@
+C:\Users\Admin>cd /d d:\java\apache-tomcat-9.0.41
+
+d:\Java\apache-tomcat-9.0.41>cd bin
+
+d:\Java\apache-tomcat-9.0.41\bin>startup.bat
+Using CATALINA_BASE:   "d:\Java\apache-tomcat-9.0.41"
+Using CATALINA_HOME:   "d:\Java\apache-tomcat-9.0.41"
+Using CATALINA_TMPDIR: "d:\Java\apache-tomcat-9.0.41\temp"
+Using JRE_HOME:        "C:\Program Files\Java\jdk-11"
+Using CLASSPATH:       "d:\Java\apache-tomcat-9.0.41\bin\bootstrap.jar;d:\Java\apache-tomcat-9.0.41\bin\tomcat-juli.jar"
+Using CATALINA_OPTS:   ""
+
+d:\homework\hw2\task8>mvn clean install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------------------< it.academy:task8 >--------------------------
+[INFO] Building task8 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ task8 ---
+[INFO] Deleting d:\homework\hw2\task8\target
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\main\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ task8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to d:\homework\hw2\task8\target\classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ task8 ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ task8 ---
+[INFO] No tests to run.
+[INFO]
+[INFO] --- maven-war-plugin:3.3.1:war (default-war) @ task8 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [task8] in [d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Building war: d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war
+[INFO]
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ task8 ---
+[INFO] Installing d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war to d:\java\.m2\repository\it\academy\task8\1.0-SNAPSHOT\task8-1.0-SNAPSHOT.war
+[INFO] Installing d:\homework\hw2\task8\pom.xml to d:\java\.m2\repository\it\academy\task8\1.0-SNAPSHOT\task8-1.0-SNAPSHOT.pom
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:undeploy (deployToTomcat9) @ task8 ---
+[INFO] Undeploying application at http://localhost:8080/task8
+[INFO] OK - Р?Р?Р°Р?Р?Р?Р? РїС?РёР?Р?Р?Р?Р?РёР? РїР? РїС?С?Рё РєР?Р?С?Р?РєС?С?Р° [/task8]
+[INFO]
+[INFO] >>> tomcat7-maven-plugin:2.2:deploy (deployToTomcat9) > package @ task8 >>>
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\main\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ task8 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to d:\homework\hw2\task8\target\classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ task8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\homework\hw2\task8\src\test\resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ task8 ---
+[INFO] No sources to compile
+[INFO]
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ task8 ---
+[INFO] No tests to run.
+[INFO] Skipping execution of surefire because it has already been run for this configuration
+[INFO]
+[INFO] --- maven-war-plugin:3.3.1:war (default-war) @ task8 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [task8] in [d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Building war: d:\homework\hw2\task8\target\task8-1.0-SNAPSHOT.war
+[INFO]
+[INFO] <<< tomcat7-maven-plugin:2.2:deploy (deployToTomcat9) < package @ task8 <<<
+[INFO]
+[INFO]
+[INFO] --- tomcat7-maven-plugin:2.2:deploy (deployToTomcat9) @ task8 ---
+[INFO] Deploying war to http://localhost:8080/task8
+Uploading: http://localhost:8080/manager/text/deploy?path=%2Ftask8
+Uploaded: http://localhost:8080/manager/text/deploy?path=%2Ftask8 (3733 KB at 3459.5 KB/sec)
+
+[INFO] tomcatManager status code:200, ReasonPhrase:
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.876 s
+
+
+
+
