@@ -22,7 +22,7 @@ public class DoctorsRepositoryImpl implements Repository {
             doctors.setName(resultSet.getString("name"));
             doctors.setSurname(resultSet.getString("surname"));
             doctors.setAge(resultSet.getString("age"));
-            doctors.setPosition(resultSet.getString("position"));
+            doctors.setPosition(resultSet.getString("status"));
             doctorsList.add(doctors);
         }
         return doctorsList;
@@ -38,7 +38,7 @@ public class DoctorsRepositoryImpl implements Repository {
             doctors.setName(resultSet.getString("name"));
             doctors.setSurname(resultSet.getString("surname"));
             doctors.setAge(resultSet.getString("age"));
-            doctors.setPosition(resultSet.getString("position"));
+            doctors.setPosition(resultSet.getString("status"));
         }
         return doctors;
     }
