@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="maskalik">
+        <sql>
+            create database if not exists ListExpenses;
+        </sql>
+    </changeSet>
+    <changeSet id="2" author="maskalik">
+        <sql>
+            create table if not exists ListExpenses.receivers(
+            num int not null primary key,
+            rname varchar(255) not null
+            );
+        </sql>
+    </changeSet>
+    <changeSet id="3" author="maskalik">
+        <sql>
+            create table if not exists ListExpenses.expenses (
+            num int not null primary key,
+            paydate date not null,
+            receiver_num int not null,
+            payvalue dec,
+            constraint receiver_num
+            foreign key(receiver_num)
+            references ListExpenses.receivers(num)
+            );
+        </sql>
+    </changeSet>
+
+    <changeSet id="4" author="maskalik">
+        <sql>
+            insert into ListExpenses.receivers (num,rname)
+            value (2, 'Dina');
+
+            insert into ListExpenses.receivers (num,rname)
+            value (3, 'Ira');
+
+            insert into ListExpenses.receivers (num,rname)
+            value (4, 'Anna');
+
+            insert into ListExpenses.expenses (num,paydate,payvalue,receiver_num)
+            value (2, '2011-5-10', 94200,2);
+
+            insert into ListExpenses.expenses (num,paydate,payvalue,receiver_num)
+            value (3, '2011-5-11', 10000,3);
+
+            insert into ListExpenses.expenses (num,paydate,payvalue,receiver_num)
+            value (4, '2011-5-11', 12950,4);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -8,7 +8,7 @@ public class ValidateNewInformation {
 
     public boolean verifyDouble(String pay){
 
-        return pay.matches("\\d+\\.\\d{2}");
+        return pay.matches("\\d+\\.\\d{1,2}");
     }
 
     public boolean verifyDate(String date){
