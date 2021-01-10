@@ -10,10 +10,6 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "FormServlet", urlPatterns = "/form-servlet")
 public class FormServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,9 +26,7 @@ public class FormServlet extends HttpServlet {
         }
         else{
             ValidateInformation validateInformation = new ValidateInformation();
-            if((validateInformation.verifyName(name) && validateInformation.verifyEmail(email)) ||
-                    (validateInformation.verifyName(name) && validateInformation.verifyPhoneNumber(phoneNumber))||
-                    (validateInformation.verifyName(name) && validateInformation.verifyEmail(email) && validateInformation.verifyPhoneNumber(phoneNumber))) {
+            if(validateInformation.verifyName(name) && validateInformation.verifyEmail(email) && validateInformation.verifyPhoneNumber(phoneNumber)) {
                 writer.println("Name: " + name);
                 if ("".equals(phoneNumber)) {
                     writer.println("Email: " + email);
@@ -44,6 +38,8 @@ public class FormServlet extends HttpServlet {
                         writer.println("Phone number: " + phoneNumber);
                     }
                 }
+            } else{
+                writer.println("Error! Data invalid!");
             }
         }
 
