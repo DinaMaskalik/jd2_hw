@@ -1,6 +1,7 @@
 package it.academy.servlet;
 
 import it.academy.file.WorkWithFile;
+import it.academy.picture.PrintPicture;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -31,11 +32,8 @@ public class PictureServlet extends HttpServlet {
 
         resp.setContentType("image/jpeg");
 
-        BufferedImage image = new BufferedImage(500, 200, BufferedImage.TYPE_INT_RGB);
-        Graphics2D graphics2D = image.createGraphics();
-        graphics2D.setFont(new Font("Serif", Font.ITALIC, 200));
-        graphics2D.setColor(Color.white);
-        graphics2D.drawString(String.valueOf(numberOfVisits), 25, 175);
+        PrintPicture picture = new PrintPicture();
+        BufferedImage image = picture.getPictureForInputNumberOfVisits(numberOfVisits);
 
         ServletOutputStream out = resp.getOutputStream();
         ImageIO.write(image, "jpeg", out);
