@@ -11,7 +11,7 @@ public class DAOFactory {
         Class.forName("com.mysql.cj.jdbc.Driver");
     }
 
-    public ExpensesDAOImp getExpensesDao(String url, String user, String password ) throws SQLException {
+    public ExpensesDAOImp getExpensesDao(String url, String user, String password) throws SQLException {
         Connection connection = DriverManager.getConnection(
                 url, user, password);
         return new ExpensesDAOImp(connection);

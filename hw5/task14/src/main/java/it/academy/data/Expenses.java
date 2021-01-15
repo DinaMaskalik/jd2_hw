@@ -63,11 +63,9 @@ public class Expenses {
 
     @Override
     public String toString() {
-        return "Expenses{" +
-                "num=" + num +
+        return "num=" + num +
                 ", payDate=" + payDate +
                 ", payValue=" + payValue +
-                ", receiverName='" + receiverName + '\'' +
-                '}';
+                ", receiverName=" + receiverName;
     }
 }

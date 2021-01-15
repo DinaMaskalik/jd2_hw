@@ -1,8 +1,9 @@
 package it.academy.servlet;
 
+import it.academy.copy.CopyOfExpensesList;
 import it.academy.data.DAOFactory;
 import it.academy.data.Expenses;
-import it.academy.data.ExpensesDAO;
+import it.academy.data.ExpensesDAOImp;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -15,14 +16,15 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "ExpensesServlet", urlPatterns = "/task14")
-public class ExpensesServlet extends HttpServlet {
+@WebServlet(name = "JSPServlet", urlPatterns = "/task15")
+public class JSPServlet extends HttpServlet {
 
     DAOFactory daoFactory;
 
     @Override
     public void init() throws ServletException {
         super.init();
+
         try {
             daoFactory = DAOFactory.getInstance();
         } catch (ClassNotFoundException e) {
@@ -33,8 +35,6 @@ public class ExpensesServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        final PrintWriter writer = resp.getWriter();
-
         try {
             ServletConfig config = getServletConfig();
 
@@ -44,22 +44,25 @@ public class ExpensesServlet extends HttpServlet {
             String user = config.getServletContext().getInitParameter("user");
             String password = getServletContext().getInitParameter("password");
 
-            ExpensesDAO expensesDAO = daoFactory.getExpensesDao(url, user, password);
-            expensesList = expensesDAO.readAll();
+            ExpensesDAOImp expensesDao = daoFactory.getExpensesDao(url, user, password);
 
-            for (Expenses expenses : expensesList) {
-                writer.println("num=" + expenses.getNum() + " pay date=" + expenses.getPayDate() + " receiver=" + expenses.getReceiverName() + " pay value = " + expenses.getPayValue());
-            }
+            expensesList = expensesDao.readAll();
+
+            CopyOfExpensesList copy = new CopyOfExpensesList();
+            String[] expensesArray = copy.getStringArrayFoExpensesList(expensesList);
+
+            req.setAttribute("expenses", expensesArray);
+
+            req.getRequestDispatcher("/jsp/expensesJSP.jsp").forward(req, resp);
 
         } catch (SQLException e) {
             e.printStackTrace();
-            writer.println("Error: " + e.getMessage());
         }
-
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+        super.doPost(req, resp);
     }
 }
