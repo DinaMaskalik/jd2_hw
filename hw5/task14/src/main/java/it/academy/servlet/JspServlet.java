@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "JSPServlet", urlPatterns = "/task15")
-public class JSPServlet extends HttpServlet {
+public class JspServlet extends HttpServlet {
 
     DAOFactory daoFactory;
 
@@ -35,6 +35,7 @@ public class JSPServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        PrintWriter writer = resp.getWriter();
         try {
             ServletConfig config = getServletConfig();
 
@@ -57,6 +58,7 @@ public class JSPServlet extends HttpServlet {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            writer.println("Error: " + e.getMessage());
         }
     }
 

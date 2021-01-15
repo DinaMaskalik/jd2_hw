@@ -22,17 +22,20 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.22</version>
     </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -41,18 +44,20 @@
   </dependencies>
 
   <build>
-    <finalName>task14</finalName>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.1</version>
       </plugin>
+
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
@@ -72,26 +77,27 @@
           <password>tomcat</password>
         </configuration>
       </plugin>
-<!--      <plugin>-->
-<!--        <groupId>org.liquibase</groupId>-->
-<!--        <artifactId>liquibase-maven-plugin</artifactId>-->
-<!--        <version>3.5.3</version>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <phase>process-resources</phase>-->
-<!--            <goals>-->
-<!--              <goal>update</goal>-->
-<!--            </goals>-->
-<!--            <configuration>-->
-<!--              <changeLogFile>src/main/resources/expenses.xml</changeLogFile>-->
-<!--              <driver>com.mysql.cj.jdbc.Driver</driver>-->
-<!--              <url>jdbc:mysql://localhost:3306/ListExpenses?serverTimezone=UTC&amp;createDatabaseIfNotExist=true</url>-->
-<!--              <username>root</username>-->
-<!--              <password>root</password>-->
-<!--            </configuration>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
+
+      <plugin>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-maven-plugin</artifactId>
+        <version>3.5.3</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>update</goal>
+            </goals>
+            <configuration>
+              <changeLogFile>src/main/resources/expenses.xml</changeLogFile>
+              <driver>com.mysql.cj.jdbc.Driver</driver>
+              <url>jdbc:mysql://localhost:3306/ListExpenses?serverTimezone=UTC&amp;createDatabaseIfNotExist=true</url>
+              <username>root</username>
+              <password>root</password>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
 
   </build>

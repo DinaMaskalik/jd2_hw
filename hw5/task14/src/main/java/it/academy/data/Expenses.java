@@ -1,9 +1,10 @@
 package it.academy.data;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Expenses {
+public class Expenses implements Serializable {
 
     private int num;
     private Date payDate;
@@ -64,8 +65,8 @@ public class Expenses {
     @Override
     public String toString() {
         return "num=" + num +
-                ", payDate=" + payDate +
-                ", payValue=" + payValue +
-                ", receiverName=" + receiverName;
+                " payDate=" + payDate +
+                " payValue=" + payValue +
+                " receiverName=" + receiverName;
     }
 }
