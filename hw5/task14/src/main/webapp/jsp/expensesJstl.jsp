@@ -25,7 +25,7 @@
             color: white;
         }
     </style>
-    <title>Title</title>
+    <title>task17</title>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
