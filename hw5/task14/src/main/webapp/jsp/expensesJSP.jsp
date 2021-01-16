@@ -1,4 +1,6 @@
-<%@ page import="java.io.PrintWriter" %><%--
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="it.academy.data.Expenses" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Dina Maskalik
   To change this template use File | Settings | File Templates.
@@ -13,9 +15,10 @@
 
 <body>
 <%
-    if (request.getAttribute("expenses") != null) {
-        for (String item : (String[]) request.getAttribute("expenses")) {
-            out.println( "<h2>"+ item+"</h2>");
+    List<Expenses> expenses = (List<Expenses>) request.getAttribute("expenses");
+    if (expenses != null) {
+        for (Expenses item : expenses) {
+            out.println( "<h2>"+"num= "+ item.getNum()+"     date= "+item.getPayDate()+"     value= "+item.getPayValue()+"   receiver= "+ item.getReceiverName() +"</h2>");
         }
     }
 %>

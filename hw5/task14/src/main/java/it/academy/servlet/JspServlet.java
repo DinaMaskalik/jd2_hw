@@ -1,6 +1,5 @@
 package it.academy.servlet;
 
-import it.academy.copy.CopyOfExpensesList;
 import it.academy.data.DAOFactory;
 import it.academy.data.Expenses;
 import it.academy.data.ExpensesDAOImp;
@@ -49,10 +48,7 @@ public class JspServlet extends HttpServlet {
 
             expensesList = expensesDao.readAll();
 
-            CopyOfExpensesList copy = new CopyOfExpensesList();
-            String[] expensesArray = copy.getStringArrayFoExpensesList(expensesList);
-
-            req.setAttribute("expenses", expensesArray);
+            req.setAttribute("expenses", expensesList);
 
             req.getRequestDispatcher("/jsp/expensesJSP.jsp").forward(req, resp);
 
