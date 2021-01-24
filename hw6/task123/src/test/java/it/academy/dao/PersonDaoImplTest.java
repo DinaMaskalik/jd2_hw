@@ -35,7 +35,7 @@ public class PersonDaoImplTest {
         Serializable id = personDao.savePersonData(person);
         Person loadPerson = personDao.loadPersonData((Integer) id);
 
-        assertEquals(person.getName()+person.getSurname(), loadPerson.getName()+loadPerson.getSurname());
+        assertEquals(person.toString(), loadPerson.toString());
     }
 
     @Test
