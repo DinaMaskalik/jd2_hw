@@ -9,7 +9,7 @@ import org.hibernate.Session;
 
 import java.io.Serializable;
 
-public class PersonLoaderSave {
+public class PersonSave {
     public static void main(String[] args) {
 
         PersonDaoImpl personDao = new PersonDaoImpl("hibernate.cfg.xml");

@@ -2,7 +2,7 @@ package it.academy.loader;
 
 import it.academy.dao.PersonDaoImpl;
 
-public class PersonLoaderDelete {
+public class PersonDelete {
 
     public static void main(String[] args) {
 

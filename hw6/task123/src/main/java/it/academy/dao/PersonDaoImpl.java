@@ -2,14 +2,15 @@ package it.academy.dao;
 
 import it.academy.pojos.Person;
 import it.academy.util.HibernateSessionUtil;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
+import org.jboss.logging.Logger;
 
 import java.io.Serializable;
 
 public class PersonDaoImpl implements PersonDao {
 
-    private String xmlFile;
+    private final String xmlFile;
+    final static Logger LOGGER = Logger.getLogger(PersonDaoImpl.class);
 
     public PersonDaoImpl(String xmlFile) {
         this.xmlFile = xmlFile;
@@ -22,45 +23,81 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public Serializable savePersonData(Person person) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
+        Serializable id = null;
+        Transaction transaction = null;
+        try {
+            if (session.isDirty())
+                session.flush();
+            transaction = session.beginTransaction();
+            id = session.save(person);
+            transaction.commit();
 
-        session.beginTransaction();
-        Serializable id = session.save(person);
-        session.getTransaction().commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            LOGGER.error("Could not save the object " + e);
+        } finally {
+            session.close();
+            return id;
+        }
 
-        session.close();
-
-        return id;
     }
 
     @Override
     public void deletePersonData(int id) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
-        session.beginTransaction();
-        Person person = session.get(Person.class, id);
-        session.delete(person);
-        session.getTransaction().commit();
-
-        session.close();
+        Transaction transaction = null;
+        try {
+            session.setFlushMode(FlushMode.ALWAYS);
+            transaction = session.beginTransaction();
+            Person person = session.get(Person.class, id);
+            session.delete(person);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            LOGGER.error("Could not delete the object " + e);
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public void deletePersonData(Person person) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
-        session.getTransaction();
-        session.delete(person);
-        session.getTransaction().commit();
+        Transaction transaction = null;
 
-        session.close();
+        try {
+            if (session.isDirty())
+                session.flush();
+            transaction = session.getTransaction();
+            session.delete(person);
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            LOGGER.error("Could not delete the object " + e);
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public Person loadPersonData(int id) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
-        Person person = session.load(Person.class, id);
-        System.out.println(person);
+        if (session.isDirty())
+            session.flush();
+        Person person = null;
+        try {
+            person = session.load(Person.class, id);
+            System.out.println(person);
 
-        session.close();
+            session.close();
+        } catch (ObjectNotFoundException e) {
+            LOGGER.error("Could not found person " + e);
+//            e.printStackTrace();
+        } finally {
+            return person;
 
-        return person;
+        }
+
     }
 }
