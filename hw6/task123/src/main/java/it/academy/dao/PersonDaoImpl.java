@@ -93,10 +93,9 @@ public class PersonDaoImpl implements PersonDao {
             session.close();
         } catch (ObjectNotFoundException e) {
             LOGGER.error("Could not found person " + e);
-//            e.printStackTrace();
+            person = null;
         } finally {
             return person;
-
         }
 
     }
