@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<table id="t01" style="width:80%" border="1">
+<table id="t01" border="1">
     <tr>
         <th>Number</th>
         <th>Pay date</th>
