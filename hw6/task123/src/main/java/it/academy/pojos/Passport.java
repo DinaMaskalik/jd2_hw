@@ -7,28 +7,29 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-//@Table(name = "T_PERSON")
-public class Person implements Serializable {
+public class Passport {
 
     @Id
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
-    private String id;
+    @Access(AccessType.PROPERTY)
+    private String passportId;
 
     @Column
-    private Integer age;
+    @Access(AccessType.FIELD)
+    private String passportSeries="QW";
 
     @Column
-    private String name;
+    @Access(AccessType.PROPERTY)
+    private String passportNumber="1234567";
 
     @Column
-    private String surname;
-
+    @Transient
+    private String visaType;
 }

@@ -43,7 +43,7 @@ public class PersonDaoImpl implements PersonDao {
     }
 
     @Override
-    public void deletePersonData(int id) {
+    public void deletePersonData(String id) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
         Transaction transaction = null;
         try {
@@ -81,7 +81,7 @@ public class PersonDaoImpl implements PersonDao {
     }
 
     @Override
-    public Person loadPersonData(int id) {
+    public Person loadPersonData(String id) {
         Session session = new HibernateSessionUtil(xmlFile).getSessionFactory().openSession();
         if (session.isDirty())
             session.flush();

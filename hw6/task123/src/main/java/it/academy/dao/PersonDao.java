@@ -8,10 +8,11 @@ public interface PersonDao {
 
     Serializable savePersonData(Person person);
 
-    void deletePersonData(int id);
+    void deletePersonData(String id);
 
     void deletePersonData(Person person);
 
-    Person loadPersonData(int id);
+    Person loadPersonData(String id);
+
 
 }

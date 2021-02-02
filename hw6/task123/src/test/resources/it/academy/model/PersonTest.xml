@@ -1,0 +1,18 @@
+<dataset>
+    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940000"
+              P_AGE="20"
+              P_NAME="Dina"
+              P_SURNAME="Maskalik"/>
+    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940001"
+              P_AGE="32"
+              P_NAME="Ira"
+              P_SURNAME="Maskalik"/>
+    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940002"
+              P_AGE="5"
+              P_NAME="Ira"
+              P_SURNAME="Ivanova"/>
+    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940003"
+              P_AGE="32"
+              P_NAME="Inna"
+              P_SURNAME="Petrova"/>
+</dataset>
