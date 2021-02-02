@@ -1,11 +1,13 @@
 package it.academy.model;
 
+import it.academy.util.HibernateSessionUtil;
 import org.dbunit.DatabaseUnitException;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.ext.mysql.MySqlConnection;
 import org.dbunit.operation.DatabaseOperation;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -25,16 +27,19 @@ public abstract class BaseTest {
 
     private IDatabaseConnection connection;
     private IDataSet dataSet;
+    public Session session;
 
-    public StandardServiceRegistry registry =
-            new StandardServiceRegistryBuilder()
-                    .configure("hibernate.cfg.test.xml")
-                    .build();
+    @org.junit.Before
+    public void setUp() {
 
-    public SessionFactory sessionFactory =
-            new MetadataSources(registry)
-                        .buildMetadata()
-                        .buildSessionFactory();
+        HibernateSessionUtil hibernateUtil = new HibernateSessionUtil("hibernate.cfg.test.xml");
+        session = hibernateUtil.getSessionFactory().openSession();
+    }
+
+    @org.junit.After
+    public void tearDown() {
+        session.close();
+    }
 
     public void cleanInsert(String resourceName) {
         try {

@@ -14,9 +14,9 @@
 
         <property name="hibernate.physical_naming_strategy" >it.academy.strategy.NamingStrategy</property>
 
-
-        <mapping class="it.academy.pojos.Person"/>
         <mapping class="it.academy.pojos.Passport"/>
+        <mapping class="it.academy.pojos.Person"/>
+        <mapping class="it.academy.pojos.PhoneNumber"/>
 
 
 

@@ -13,7 +13,7 @@ public class PersonSave {
     public static void main(String[] args) {
 
         PersonDaoImpl personDao = new PersonDaoImpl("hibernate.cfg.xml");
-        Person person = new Person(null, 35, "Dina", "Maskalik");
+        Person person = new Person(null, 35, "Dina", "Maskalik", null);
 
         personDao.savePersonData(person);
 

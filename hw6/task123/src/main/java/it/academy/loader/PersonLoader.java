@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 public class PersonLoader {
     public static void main(String[] args) {
-        Person person = new Person(null, 35, "Yuli", "Slabko");
+        Person person = new Person(null, 35, "Yuli", "Slabko", null);
         EntityManager em = HibernateUtil.getEntityManager();
 
         em.getTransaction().begin();

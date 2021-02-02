@@ -19,9 +19,9 @@ public class PersonDaoImplTest extends BaseTest {
     private Person person;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         personDao = new PersonDaoImpl("hibernate.cfg.test.xml");
-        person = new Person(null, 34, "Ira", "Maskalik");
+        person = new Person(null, 34, "Ira", "Maskalik", null);
     }
 
     @Test
@@ -47,6 +47,7 @@ public class PersonDaoImplTest extends BaseTest {
         assertNull(personDao.loadPersonData((String) id));
     }
 
+    //
     @Test
     public void dbUnitLoad() {
         //Given
@@ -75,8 +76,4 @@ public class PersonDaoImplTest extends BaseTest {
 
     }
 
-    @After
-    public void tearDown() throws Exception {
-
-    }
 }

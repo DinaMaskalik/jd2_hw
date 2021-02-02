@@ -1,9 +1,7 @@
 package it.academy.pojos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.sun.istack.Nullable;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -20,7 +18,7 @@ public class Person implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid-generator")
     @GenericGenerator(name = "uuid-generator", strategy = "uuid")
-    private String id;
+    private String personId;
 
     @Column
     private Integer age;
@@ -30,5 +28,9 @@ public class Person implements Serializable {
 
     @Column
     private String surname;
+
+    @Embedded
+    @Nullable
+    private Address address;
 
 }

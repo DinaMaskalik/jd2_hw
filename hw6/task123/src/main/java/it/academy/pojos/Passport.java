@@ -9,10 +9,10 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Entity
 public class Passport {
 
     @Id

@@ -8,12 +8,28 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class PassportTest extends BaseTest {
 
-    @Before
-    public void setUp() throws Exception {
+
+    @Test
+    public void readAll() {
+        //Given
+        cleanInsert("PassportTest.xml");
+
+        //When
+
+        final List<Passport> passports =
+                session.createQuery("from Passport")
+                .list();
+
+        //Then
+        assertEquals(4, passports.size());
+        deleteDataset();
+
     }
 
     @Test
@@ -22,7 +38,6 @@ public class PassportTest extends BaseTest {
         cleanInsert("PassportTest.xml");
 
         //When
-        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(session.get(Passport.class, "4028abed775d2c1b01775d2c1d940011"));
         transaction.commit();
@@ -38,7 +53,6 @@ public class PassportTest extends BaseTest {
         cleanInsert("PassportTest.xml");
 
         //When
-        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         final Passport passport = session.get(Passport.class, "4028abed775d2c1b01775d2c1d940011");
         transaction.commit();
@@ -48,8 +62,4 @@ public class PassportTest extends BaseTest {
         deleteDataset();
     }
 
-    @After
-    public void tearDown() throws Exception {
-        sessionFactory.close();
-    }
 }

@@ -1,18 +1,34 @@
 <dataset>
-    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940000"
+    <T_PERSON P_PERSON_ID="4028abed775d2c1b01775d2c1d940000"
               P_AGE="20"
               P_NAME="Dina"
-              P_SURNAME="Maskalik"/>
-    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940001"
+              P_SURNAME="Maskalik"
+              P_CITY="Minsk"
+              P_STREET="Gikalo"
+              P_POSTAL_CODE="123456"
+    />
+    <T_PERSON P_PERSON_ID="4028abed775d2c1b01775d2c1d940001"
               P_AGE="32"
               P_NAME="Ira"
-              P_SURNAME="Maskalik"/>
-    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940002"
+              P_SURNAME="Maskalik"
+              P_CITY="Minsk"
+              P_STREET="Mira"
+              P_POSTAL_CODE="456789"
+    />
+    <T_PERSON P_PERSON_ID="4028abed775d2c1b01775d2c1d940002"
               P_AGE="5"
               P_NAME="Ira"
-              P_SURNAME="Ivanova"/>
-    <T_PERSON P_ID="4028abed775d2c1b01775d2c1d940003"
+              P_SURNAME="Ivanova"
+              P_CITY="Minsk"
+              P_STREET="Botanicheskaya"
+              P_POSTAL_CODE="789067"
+    />
+    <T_PERSON P_PERSON_ID="4028abed775d2c1b01775d2c1d940003"
               P_AGE="32"
               P_NAME="Inna"
-              P_SURNAME="Petrova"/>
+              P_SURNAME="Petrova"
+              P_CITY="Minsk"
+              P_STREET="Gikalo"
+              P_POSTAL_CODE="098765"
+    />
 </dataset>

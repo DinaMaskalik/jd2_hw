@@ -1,0 +1,22 @@
+<dataset>
+    <T_PHONE_NUMBER
+            P_PHONE_ID="1"
+            P_PHONE_NUMBER = "+375285693215"
+            P_BALANCE="345"
+    />
+    <T_PHONE_NUMBER
+            P_PHONE_ID="2"
+            P_PHONE_NUMBER = "+375285690815"
+            P_BALANCE="345"
+    />
+    <T_PHONE_NUMBER
+            P_PHONE_ID="3"
+            P_PHONE_NUMBER = "+375295789054"
+            P_BALANCE="345"
+    />
+    <T_PHONE_NUMBER
+            P_PHONE_ID="4"
+            P_PHONE_NUMBER = "+375333061651"
+            P_BALANCE="345"
+    />
+</dataset>
