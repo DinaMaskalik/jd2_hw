@@ -36,11 +36,6 @@ public abstract class BaseTest {
         session = hibernateUtil.getSessionFactory().openSession();
     }
 
-    @org.junit.After
-    public void tearDown() {
-        session.close();
-    }
-
     public void cleanInsert(String resourceName) {
         try {
             if (connection == null) {
