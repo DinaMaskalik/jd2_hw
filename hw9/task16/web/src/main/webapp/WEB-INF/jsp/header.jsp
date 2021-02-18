@@ -1,0 +1,3 @@
+<div style="text-align:center;background: burlywood; border-bottom:solid 1px black">
+The header ....
+</div>

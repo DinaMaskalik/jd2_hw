@@ -19,7 +19,7 @@ public class Main {
                 Connection connection = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/ListExpenses?serverTimezone=UTC",
                         "root",
-                        "Dina05082001");
+                        "root");
 
                 try (PreparedStatement preparedStatement = connection.prepareStatement(
                         "insert into ListExpenses.expenses (num,paydate,payvalue,receiver_num)\n" +
